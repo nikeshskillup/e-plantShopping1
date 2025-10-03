@@ -6,7 +6,7 @@ import AboutUs from './AboutUs';
 
 function App() {
   
-  const [showProductList, setShowProductList] = useState(false);
+  const [showProductList] = useState(false);
 
   const handleGetStartedClick = () => {
     setShowProductList(true);
@@ -23,7 +23,7 @@ function App() {
           <p>Where Green Meets Serenity</p>
          
           <button className="get-started-button" onClick={handleGetStartedClick}>
-            Get Started
+            
           </button>
          </div>
           <div className="aboutus_container">
