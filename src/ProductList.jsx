@@ -5,7 +5,7 @@ import CartItem from './CartItem';
 import { addItem } from './CartSlice';
 function ProductList() {
     const dispatch = useDispatch();
-    const [showCart, setShowCart] = useState(false); 
+    
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
 
@@ -20,11 +20,11 @@ function ProductList() {
     }, [cartItems]);
 
     const handleAddToCart = (product) => {
-        dispatch(addItem(product));
+        dispatch());
     };
 
       const cartTotalQuantity = useSelector(state =>
-        state.cart.items.reduce((total, item) => total + item.quantity, 0)
+        state.cart.items.reduce( item) => total + item.quantity, 0)
       );
 
       const plantsArray = [
@@ -33,12 +33,12 @@ function ProductList() {
             plants: [
                 {
                     name: "Snake Plant",
-                    image: "https://cdn.pixabay.com/photo/2021/01/22/06/04/snake-plant-5939187_1280.jpg",
+                    
                     description: "Produces oxygen at night, improving air quality.",
                     cost: "15"
                 },
                 {
-                    name: "Spider Plant",
+                    
                     image: "https://cdn.pixabay.com/photo/2018/07/11/06/47/chlorophytum-3530413_1280.jpg",
                     description: "Filters formaldehyde and xylene from the air.",
                     cost: "12"
@@ -50,7 +50,7 @@ function ProductList() {
                     cost: "18"
                 },
                 {
-                    name: "Boston Fern",
+                    
                     image: "https://cdn.pixabay.com/photo/2020/04/30/19/52/boston-fern-5114414_1280.jpg",
                     description: "Adds humidity to the air and removes toxins.",
                     cost: "20"
@@ -65,12 +65,12 @@ function ProductList() {
                     name: "Aloe Vera",
                     image: "https://cdn.pixabay.com/photo/2018/04/02/07/42/leaf-3283175_1280.jpg",
                     description: "Purifies the air and has healing properties for skin.",
-                    cost: "14"
+                    
                 }
             ]
         },
         {
-            category: "Aromatic Fragrant Plants",
+            
             plants: [
                 {
                     name: "Lavender",
@@ -85,7 +85,7 @@ function ProductList() {
                     cost: "18"
                 },
                 {
-                    name: "Rosemary",
+                    
                     image: "https://cdn.pixabay.com/photo/2019/10/11/07/12/rosemary-4541241_1280.jpg",
                     description: "Invigorating scent, often used in cooking.",
                     cost: "15"
@@ -111,7 +111,7 @@ function ProductList() {
             ]
         },
         {
-            category: "Insect Repellent Plants",
+            
             plants: [
                 {
                     name: "oregano",
@@ -256,17 +256,17 @@ function ProductList() {
    }
    const handleCartClick = (e) => {
     e.preventDefault();
-    setShowCart(true); // Set showCart to true when cart icon is clicked
+     // Set showCart to true when cart icon is clicked
 };
-const handlePlantsClick = (e) => {
+const handlePlantClick = (e) => {
     e.preventDefault();
-    setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
+     // Set showAboutUs to true when "About Us" link is clicked
     setShowCart(false); // Hide the cart when navigating to About Us
 };
 
    const handleContinueShopping = (e) => {
     e.preventDefault();
-    setShowCart(false);
+    
   };
     return (
         <div>
@@ -274,7 +274,7 @@ const handlePlantsClick = (e) => {
             <div className="tag">
                <div className="luxury">
                <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
-               <a href="/" style={{textDecoration:'none'}}>
+               <a href="/home" style={{textDecoration:'none'}}>
                         <div>
                     <h3 style={{color:'blue'}}>Paradise Nursery</h3>
                     <i style={{color:'blue'}}>Where Green Meets Serenity</i>
@@ -292,7 +292,7 @@ const handlePlantsClick = (e) => {
         </div>
         {!showCart? (
         <div className="product-grid">
-                {plantsArray.map((category, index) => (
+                
                 <div key={index}>
                     <h1><div>{category.category}</div></h1>
                     <div className="product-list">
@@ -310,7 +310,7 @@ const handlePlantsClick = (e) => {
                 ))}
         </div>
  ) :  (
-    <CartItem onContinueShopping={handleContinueShopping}/>
+    <CartItem onShopping={handleContinueShopping}/>
 )}
     </div>
     );
